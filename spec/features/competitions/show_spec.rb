@@ -23,6 +23,7 @@ RSpec.describe 'Competition show page' do
   end
 
   it 'should have competition name, location, and sport' do
+    save_and_open_page
     expect(page).to have_content(@competition.name)
     expect(page).to have_content(@competition.location)
     expect(page).to have_content(@competition.sport)

@@ -1,10 +1,14 @@
 <% @teams.each do |team| %>
 <div id="team-<%= team.id%>">
 <h3><%= team.nickname %></h3>
-<h4><%= team.hometown %></h4>
+<h4>Hometown: <%= team.hometown %></h4>
+
+
+<ul>
 <% team.players.each do |player|%>
-<h5>Player name: <%= player.name %></h5>
-<h5>Player age: <%= player.age %></h5>
+<li><h5>Player name: <%= player.name %></h5></li>
+<li><h5>Player age: <%= player.age %></h5></li>
 <% end %>
+</ul>
 </div>
 <% end %>
