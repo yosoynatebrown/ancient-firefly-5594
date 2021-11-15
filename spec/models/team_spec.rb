@@ -4,7 +4,7 @@ RSpec.describe Team do
   describe 'relationships' do
     it { should have_many(:players) }
     it { should have_many(:team_competitions) }
-    it {should have_many(:competitions).through(:team_competitions)}
+    it { should have_many(:competitions).through(:team_competitions) }
   end
 before(:each) do
     @team1, @team2, @team3 = create_list(:team, 3)

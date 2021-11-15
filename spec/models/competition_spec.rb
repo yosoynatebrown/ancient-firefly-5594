@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Competition, type: :model do
   it { should have_many(:team_competitions) }
-  it {should have_many(:teams).through(:team_competitions)}
+  it { should have_many(:teams).through(:team_competitions) }
  before(:each) do
     @competition = create(:competition)
-    
+
     @team1, @team2, @team3 = create_list(:team, 3)
 
     @competition.teams << @team1

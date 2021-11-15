@@ -5,7 +5,8 @@ class Team < ApplicationRecord
 
   scope :average_age, -> { Team.joins(:players).average(:age).round(2) }
   scope :sorted_by_average_age, -> { Team.joins(:players)
-                                         .select('teams.*, AVG(players.age) AS average_player_age')
+                                         .select('teams.*')
+                                         .select('AVG(players.age) AS average_player_age')
                                          .group('teams.id')
                                          .order(average_player_age: :desc) }
 end

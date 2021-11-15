@@ -23,7 +23,6 @@ RSpec.describe 'Competition show page' do
   end
 
   it 'should have competition name, location, and sport' do
-    save_and_open_page
     expect(page).to have_content(@competition.name)
     expect(page).to have_content(@competition.location)
     expect(page).to have_content(@competition.sport)
@@ -42,14 +41,16 @@ RSpec.describe 'Competition show page' do
     expect(page).to have_content(25.83)
   end
 
-  it 'should have a text field to enter a team name and add to competition' do 
-    expect(page).not_to have_content(@team4.nickname)
-    
-    fill_in 'Nickname', with: "#{@team4.nickname}"
-    
-    click_button 'Submit'
+  context 'when form information entered correctly' do
+    it 'should have a text field to enter a team name and add to competition' do 
+      expect(page).not_to have_content(@team4.nickname)
+      
+      fill_in 'Nickname', with: "#{@team4.nickname}"
+      
+      click_button 'Submit'
 
-    expect(current_path).to eq("/competitions/#{@competition.id}")
-    expect(page).to have_content(@team4.nickname)
+      expect(current_path).to eq("/competitions/#{@competition.id}")
+      expect(page).to have_content(@team4.nickname)
+    end
   end
 end
