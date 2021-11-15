@@ -5,10 +5,8 @@ RSpec.describe Competition, type: :model do
   it {should have_many(:teams).through(:team_competitions)}
  before(:each) do
     @competition = create(:competition)
-
-    @team1 = create(:team)
-    @team2 = create(:team)
-    @team3 = create(:team)
+    
+    @team1, @team2, @team3 = create_list(:team, 3)
 
     @competition.teams << @team1
     @competition.teams << @team2

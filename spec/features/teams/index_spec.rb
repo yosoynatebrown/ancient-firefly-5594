@@ -15,7 +15,7 @@ RSpec.describe 'Teams index page' do
     @player5 = create(:player, team: @team3, age: 31)
     @player6 = create(:player, team: @team3, age: 27)
 
-    visit '/teams'
+    visit teams_path
   end
 
   it 'should have the name and hometown of all Teams' do
@@ -44,7 +44,6 @@ RSpec.describe 'Teams index page' do
   end
 
   it 'should have teams sorted by average age' do
-    save_and_open_page
     expect(@team3.nickname).to appear_before(@team2.nickname)
     expect(@team2.nickname).to appear_before(@team1.nickname)
   end

@@ -7,9 +7,7 @@ RSpec.describe Team do
     it {should have_many(:competitions).through(:team_competitions)}
   end
 before(:each) do
-    @team1 = create(:team)
-    @team2 = create(:team)
-    @team3 = create(:team)
+    @team1, @team2, @team3 = create_list(:team, 3)
 
     @player1 = create(:player, team: @team1, age: 20)
     @player2 = create(:player, team: @team1, age: 22)

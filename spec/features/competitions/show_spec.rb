@@ -4,10 +4,7 @@ RSpec.describe 'Competition show page' do
   before(:each) do
     @competition = create(:competition)
 
-    @team1 = create(:team)
-    @team2 = create(:team)
-    @team3 = create(:team)
-    @team4 = create(:team)
+    @team1, @team2, @team3, @team4 = create_list(:team, 4)
 
     @competition.teams << @team1
     @competition.teams << @team2
@@ -22,7 +19,7 @@ RSpec.describe 'Competition show page' do
     @player5 = create(:player, team: @team3, age: 31)
     @player6 = create(:player, team: @team3, age: 27)
 
-    visit "/competitions/#{@competition.id}"
+    visit competition_path(@competition)
   end
 
   it 'should have competition name, location, and sport' do
@@ -45,6 +42,8 @@ RSpec.describe 'Competition show page' do
   end
 
   it 'should have a text field to enter a team name and add to competition' do 
+    expect(page).not_to have_content(@team4.nickname)
+    
     fill_in 'Nickname', with: "#{@team4.nickname}"
     
     click_button 'Submit'

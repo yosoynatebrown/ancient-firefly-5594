@@ -5,6 +5,6 @@ class TeamCompetitionsController < ApplicationController
 
     TeamCompetition.create(team: team, competition: competition)
 
-    redirect_to "/competitions/#{params[:id]}"
+    redirect_to competition_path(competition)
   end
 end
