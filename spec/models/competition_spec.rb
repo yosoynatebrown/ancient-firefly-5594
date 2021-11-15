@@ -25,7 +25,7 @@ RSpec.describe Competition, type: :model do
   end
   describe 'instance methods' do 
     describe '#average_age_of_players' do 
-      xit 'should calculate average age of all players in competition to 2 decimal places' do 
+      it 'should calculate average age of all players in competition to 2 decimal places' do 
         expect(@competition.average_age_of_players).to eq(25.83)
       end
     end

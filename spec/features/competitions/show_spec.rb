@@ -40,7 +40,7 @@ RSpec.describe 'Competition show page' do
     expect(page).to have_content(@team3.hometown)
   end
 
-  xit 'should have the average age of players' do 
+  it 'should have the average age of players' do 
     expect(page).to have_content(25.83)
   end
 
