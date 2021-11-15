@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :team_competition do
-    team { nil }
-    competition { nil }
+    team
+    competition
   end
 end

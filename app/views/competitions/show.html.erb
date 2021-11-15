@@ -1,0 +1,16 @@
+<h1><%= @competition.name %></h1>
+<h3><%= @competition.location %></h3>
+<h3><%= @competition.sport %></h3>
+
+<% @competition.teams.each do |team|%>
+<%= team.nickname %>
+<%= team.hometown %>
+<% end %>
+
+
+<%= form_with url: "/competitions/#{@competition.id}/teams", method: :post, local: true do |f| %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+
+    <%= f.submit "Submit"%>
+<% end %>
